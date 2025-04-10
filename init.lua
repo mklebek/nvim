@@ -950,7 +950,22 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup {
+        custom_surroundings = {
+          -- - srTT   - [S]urround [R]eplace [T]ag opening [T]ag closing
+          -- ^ allows to replace the surrounding tag with another one without losing any added attributes
+          T = {
+            input = { '<(%w+)[^<>]->.-</%1>', '^<()%w+().*</()%w+()>$' },
+            output = function()
+              local tag_name = MiniSurround.user_input 'Tag name'
+              if tag_name == nil then
+                return nil
+              end
+              return { left = tag_name, right = tag_name }
+            end,
+          },
+        },
+      }
       require('mini.move').setup()
 
       -- Simple and easy statusline.
