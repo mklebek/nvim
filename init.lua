@@ -757,20 +757,6 @@ require('lazy').setup({
     end,
   },
 
-  { -- File operations (rename, move etc...) improvements for auto renaming imports
-    'antosha417/nvim-lsp-file-operations',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      -- Uncomment whichever supported plugin(s) you use
-      -- "nvim-tree/nvim-tree.lua",
-      'nvim-neo-tree/neo-tree.nvim',
-      -- "simonmclean/triptych.nvim"
-    },
-    config = function()
-      require('lsp-file-operations').setup()
-    end,
-  },
-
   { -- Refactoring (extracting/inlining methods and variables) use :Refactor
     'ThePrimeagen/refactoring.nvim',
     dependencies = {
@@ -952,13 +938,6 @@ require('lazy').setup({
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-  -- Auto close and change HTML tags
-  {
-    'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end,
-  },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
@@ -1079,14 +1058,13 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
-  require 'custom.plugins.bufferline',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
