@@ -7,9 +7,10 @@ return { -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
     build = 'make tiktoken',
     opts = {
       mappings = {
-        reset = false,
+        -- Use tab for completion
         complete = {
-          insert = '<Tab>',
+          detail = 'Use @<Tab> or /<Tab> for options.',
+          insert = '',
         },
         show_diff = {
           full_diff = true,
