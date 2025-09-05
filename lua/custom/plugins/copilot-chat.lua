@@ -6,7 +6,15 @@ return { -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
     },
     build = 'make tiktoken',
     opts = {
-      -- See Configuration section for options
+      mappings = {
+        reset = false,
+        complete = {
+          insert = '<Tab>',
+        },
+        show_diff = {
+          full_diff = true,
+        },
+      },
     },
   },
 }
