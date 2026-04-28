@@ -722,7 +722,14 @@ require('lazy').setup({
       format_on_save = function(bufnr)
         -- You can specify filetypes to autoformat on save here:
         local enabled_filetypes = {
-          -- lua = true,
+          typescript = true,
+          typescriptreact = true,
+          javascript = true,
+          javascriptreact = true,
+          json = true,
+          html = true,
+          css = true,
+          lua = true,
           -- python = true,
         }
         if enabled_filetypes[vim.bo[bufnr].filetype] then
