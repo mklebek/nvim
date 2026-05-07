@@ -52,6 +52,10 @@ return {
 
       -- Telescope only: If load_on_setup is false, make sure you use `:AutoSession search` to open the picker as it will initialize everything first
       load_on_setup = true,
+      auto_save_enabled = true,
+      auto_restore_enabled = true,
+      -- Delete session if restore fails instead of just disabling auto-save
+      auto_session_suppress_dirs = { "~/", "~/Downloads" },
     },
   },
 }
